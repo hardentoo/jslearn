@@ -46,4 +46,4 @@ function xoReferee (list) {
 var list = ["O.X","XX.","XOO"];
 console.log(xoReferee(list));
 
-phantom.exit();
+//phantom.exit();

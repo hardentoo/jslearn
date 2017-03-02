@@ -25,4 +25,4 @@ var m = [ 1, 2, 3, 4, 5, 6 ];
 console.log(m);
 console.log(median(m));
 
-phantom.exit();
+//phantom.exit();

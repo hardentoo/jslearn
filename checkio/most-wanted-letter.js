@@ -31,4 +31,4 @@ function mostWanted (str) {
 
 console.log(mostWanted("accbbde"));
 
-phantom.exit();
+//phantom.exit();

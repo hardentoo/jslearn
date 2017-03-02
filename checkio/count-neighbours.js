@@ -37,4 +37,4 @@ var col = 4;
 
 console.log(countNeighbours(data, row, col));
 
-phantom.exit();
+//phantom.exit();

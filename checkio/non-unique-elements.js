@@ -22,4 +22,4 @@ var m = [ 3, 3, 7, 7, 4, 8, 2, 1, 6 ];
 console.log(m);
 console.log(nonUniqueElements(m));
 
-phantom.exit();
+//phantom.exit();
