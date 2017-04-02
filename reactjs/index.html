@@ -1,0 +1,73 @@
+<!-- http://www.codeblocq.com/2015/12/Build-your-first-React-application/ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <script src="https://fb.me/react-0.14.3.js"></script>
+  <script src="https://fb.me/react-dom-0.14.3.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+</head>
+<body>
+
+    <div id="main"></div>
+
+    <script type="text/babel">
+
+
+var TextTransformButton = React.createClass({
+  onButtonClick: function() {
+    this.props.onButtonClick(this.props.transform);
+  },
+  render: function() {
+    return (
+      <button onClick={this.onButtonClick}>{this.props.transform}</button>
+    )
+  }
+});
+var HelloText = React.createClass({
+  render: function() {
+    return (
+      <div>
+        <div style={this.props.textStyle}>Hello from React</div>
+      </div>
+    )
+  }
+});
+var Main = React.createClass({
+  getInitialState: function() {
+    return {textStyle: {
+      textTransform: 'none'
+    }};
+  },
+  clickHandler: function (newCase) {
+    this.setState({textStyle: {
+      textTransform: newCase
+    }});
+  },
+  render: function() {
+    return (
+      <div>
+        <HelloText textStyle={this.state.textStyle} />
+        <TextTransformButton onButtonClick={this.clickHandler} transform={"lowercase"} />
+        <TextTransformButton onButtonClick={this.clickHandler} transform={"uppercase"} />
+      </div>
+    )
+  }
+});
+ReactDOM.render(<Main />, document.getElementById("main"));
+
+
+      // Your react code goes here
+
+
+
+
+
+
+
+    </script>
+
+</body>
+</html>
