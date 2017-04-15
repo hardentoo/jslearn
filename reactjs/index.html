@@ -14,58 +14,49 @@
     <div id="main"></div>
 
     <script type="text/babel">
+        var TextTransformButton = React.createClass({
+          onButtonClick: function() {
+            this.props.onButtonClick(this.props.transform);
+          },
+          render: function() {
+            return (
+              <button onClick={this.onButtonClick}>{this.props.transform}</button>
+            )
+          }
+        });
+        var HelloText = React.createClass({
+          render: function() {
+            return (
+              <div>
+                <div style={this.props.textStyle}>Hello from React</div>
+              </div>
+            )
+          }
+        });
+        var Main = React.createClass({
+          getInitialState: function() {
+            return {textStyle: {
+              textTransform: 'none'
+            }};
+          },
+          clickHandler: function (newCase) {
+            this.setState({textStyle: {
+              textTransform: newCase
+            }});
+          },
+          render: function() {
+            return (
+              <div>
+                <HelloText textStyle={this.state.textStyle} />
+                <TextTransformButton onButtonClick={this.clickHandler} transform={"lowercase"} />
+                <TextTransformButton onButtonClick={this.clickHandler} transform={"uppercase"} />
+              </div>
+            )
+          }
+        });
+        ReactDOM.render(<Main />, document.getElementById("main"));
 
-
-var TextTransformButton = React.createClass({
-  onButtonClick: function() {
-    this.props.onButtonClick(this.props.transform);
-  },
-  render: function() {
-    return (
-      <button onClick={this.onButtonClick}>{this.props.transform}</button>
-    )
-  }
-});
-var HelloText = React.createClass({
-  render: function() {
-    return (
-      <div>
-        <div style={this.props.textStyle}>Hello from React</div>
-      </div>
-    )
-  }
-});
-var Main = React.createClass({
-  getInitialState: function() {
-    return {textStyle: {
-      textTransform: 'none'
-    }};
-  },
-  clickHandler: function (newCase) {
-    this.setState({textStyle: {
-      textTransform: newCase
-    }});
-  },
-  render: function() {
-    return (
-      <div>
-        <HelloText textStyle={this.state.textStyle} />
-        <TextTransformButton onButtonClick={this.clickHandler} transform={"lowercase"} />
-        <TextTransformButton onButtonClick={this.clickHandler} transform={"uppercase"} />
-      </div>
-    )
-  }
-});
-ReactDOM.render(<Main />, document.getElementById("main"));
-
-
-      // Your react code goes here
-
-
-
-
-
-
+        // Your react code goes here
 
     </script>
 
